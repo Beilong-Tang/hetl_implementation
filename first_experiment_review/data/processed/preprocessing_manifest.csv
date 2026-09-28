@@ -1,0 +1,4 @@
+task,seed,source_rows,target_rows,features_after_encoding,target_validation_rows,target_test_rows,processed_file
+dos->r2l,42,1990,1990,108,500,1490,data/processed/dos_to_r2l_seed_42.npz
+dos->probe,42,1990,1990,107,500,1490,data/processed/dos_to_probe_seed_42.npz
+probe->r2l,42,1990,1990,103,500,1490,data/processed/probe_to_r2l_seed_42.npz

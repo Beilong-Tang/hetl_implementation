@@ -6,7 +6,7 @@ This directory is reserved for deep-learning baselines on the same NSL-KDD trans
 - DoS → Probe
 - Probe → R2L
 
-The existing `first_experiment_review` directory is not modified by this experiment. Results should be written only to `outputs/` and model weights to `checkpoints/`.
+The existing `first_experiment_review` directory is not modified by this experiment. Results should be written only to `outputs/` and model weights to `checkpoints/`. The deep-learning protocol is documented in `REPRODUCTION_RULES.md`.
 
 ## Candidate methods
 
@@ -37,3 +37,5 @@ The first model to implement should be the tabular ResNet, followed by the 1D CN
 - Regularization: dropout `0.2`, weight decay `1e-4`
 
 See `configs/experiment.json` for the proposed experiment matrix.
+
+The combined comparison is written to `outputs/tables/deep_learning_summary.csv`; the original parent baseline and HeTL summary files are preserved.

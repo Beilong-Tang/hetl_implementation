@@ -1,0 +1,47 @@
+{
+  "data_root": "../first_experiment_review/data",
+  "tasks": [
+    {"name": "dos_to_r2l", "source": "dos", "target": "r2l"},
+    {"name": "dos_to_probe", "source": "dos", "target": "probe"},
+    {"name": "probe_to_r2l", "source": "probe", "target": "r2l"}
+  ],
+  "seeds": [42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
+  "models": {
+    "tabular_resnet": {
+      "type": "mlp_residual",
+      "hidden_dim": 128,
+      "blocks": 3,
+      "dropout": 0.2
+    },
+    "cnn1d": {
+      "type": "cnn1d",
+      "channels": [64, 128],
+      "kernel_size": 5,
+      "dropout": 0.2
+    },
+    "gru": {
+      "type": "gru",
+      "hidden_dim": 64,
+      "layers": 2,
+      "dropout": 0.2
+    },
+    "tabular_transformer": {
+      "type": "transformer",
+      "embedding_dim": 64,
+      "heads": 4,
+      "layers": 2,
+      "dropout": 0.2
+    }
+  },
+  "training": {
+    "batch_size": 128,
+    "epochs": 100,
+    "early_stopping_patience": 15,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "scheduler": "cosine",
+    "selection_metric": "target_validation_f1",
+    "loss": "weighted_bce"
+  }
+}

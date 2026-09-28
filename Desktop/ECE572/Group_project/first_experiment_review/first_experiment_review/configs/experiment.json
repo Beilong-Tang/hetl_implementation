@@ -1,0 +1,27 @@
+{
+  "random_seeds": [42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
+  "samples_per_class": 995,
+  "target_validation_size": 500,
+  "tasks": [
+    {"source": "dos", "target": "r2l"},
+    {"source": "dos", "target": "probe"},
+    {"source": "probe", "target": "r2l"}
+  ],
+  "preprocessing": {
+    "drop_difficulty": true,
+    "categorical_features": ["protocol_type", "service", "flag"],
+    "categorical_encoder": "one_hot",
+    "scaler": "minmax_per_domain",
+    "remove_constant_features": true
+  },
+  "hetl": {
+    "beta_grid": [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
+    "latent_dimensions": [2, 5, 10, 20, 30],
+    "learning_rates": [0.00001, 0.0001],
+    "max_steps": 1000,
+    "tolerance": 1e-7,
+    "patience": 10,
+    "initialization": "svd",
+    "selection_metric": "target_validation_f1"
+  }
+}
